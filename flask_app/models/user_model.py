@@ -1,9 +1,9 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 #might need other imports like flash other classes and regex
 
-db = 'Your database name'
+db = 'neighborly'
 
-class Rename:
+class User:
     def __init__(self, data):
         #follow database table fields plus any other attribute you want to create
         pass
