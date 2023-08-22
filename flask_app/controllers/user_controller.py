@@ -1,18 +1,57 @@
 from flask_app import app
+from flask_app import app
 from flask import render_template, redirect, request, session, flash
-from flask_app.models.user_model import Rename #importing the class here
-#There will be other imports need depending what you're trying to use in this file
-#You will also need a bycrypt import (we will introduce this week 5)
+from flask_app.models.user_model import User
+from flask_bcrypt import Bcrypt
+bcrypt = Bcrypt(app)
 
 
-@app.route('/') #Get request for 127.0.0.1:5000
-def home():
+
+@app.route('/')
+def create():
     return render_template('index.html')
 
-@app.route('/register', methods=['POST']) #Post request route
-def rename1():
-    return redirect('/route path goes here!')
+@app.route('/register', methods=['POST'])
+def register_user():
+    print('#############')
+    if not User.validate_user(request.form):
+        return redirect('/')
+    data = {
+        'first_name': request.form['first_name'],
+        'last_name': request.form['last_name'],
+        'email': request.form['email'],
+        'password': bcrypt.generate_password_hash(request.form['password']) 
+    }
+    print(data, '#' *20)
+    # id = User.save(data)
+    user_id = User.save(data)
+    session['user_id'] = user_id
+    # print(request.form)
+    return redirect('/dashboard')
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = {
+        'email': request.form['email']
+    }
+    one_user = User.get_user_by_email(data)
+    if not one_user:
+        flash('Invalid email or password!!')
+        return redirect('/')
+    session ['user_id']= one_user.id
+    return redirect('/dashboard')
 
 @app.route('/dashboard')
-def rename2():
-    return render_template('Dashboard html page here!')
+def dashboard():
+    if 'user_id' not in session:
+        return redirect('logout')
+    data = {
+        'id': session ['user_id']
+    }
+ 
+    return render_template('dashboard.html', user = User.get_by_id)
+
+@app.route('/logout')
+def logout():
+    session.clear
+    return redirect('/')
