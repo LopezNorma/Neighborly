@@ -3,71 +3,46 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="..\static\style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Log in</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="d-flex justify-content-around mb-5 border">
-        <form action="/register" method="post" class=" bg-success text-white p-4">
-            <h1 class="text-center text-info">Register</h1>
-            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
-            {% if messages %}                            <!-- check if there are any messages -->
-                {% for message in messages %}            <!-- loop through the messages -->
-                    <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
-                        {% endfor %}
-                            {% endif %}
-                                {% endwith %}
-            <div class="mb-3">
-                <label for="first name" class="form-lable">First Name</label>
-                <input type="text" name="first_name" placeholder="first name" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="last name" class="form-lable">Last Name</label>
-                <input type="text" name="last_name" placeholder="last name" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-lable">Email</label>
-                <input type="text" name="email" placeholder="email" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-lable">Password</label>
-                <input type="password" name="password" placeholder="password" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label for="confirm_password" class="form-lable">Confirm Password</label>
-                <input type="password" name="confirm_password" placeholder="confirm password" class="form-control">
-            </div>
-            <div>
-                <input type="submit" value="register" class="btn btn-primary">
-            </div>
-        </form>
-        <!-- <div class="bg-drk-subtle">
-            <div class="d-flex justify-content-around mb-5"> -->
-                <form action="/login" method="post" class="col-3 bg-success text-white p-4">
-                    <h2 class="text-center text-info">Login</h2>
-                    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
-                    {% if messages %}                            <!-- check if there are any messages -->
-                        {% for message in messages %}            <!-- loop through the messages -->
-                            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
-                                {% endfor %}
-                                    {% endif %}
-                                        {% endwith %}
-                    <div class="mb-3">
-                        <label for="email" class="form-lable">Email</label>
-                        <input type="text" name="email" placeholder="email" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-lable">Password</label>
-                        <input type="password" name="password" placeholder="password" class="form-control">
-                    </div>
-                    <input type="submit" value="Login" class="btn btn-success">
-                </form>
-            </div>
+    
+    <h1 class= 'header'>Welcome to Neighborly!</h1>
+    <h3>{%for message in get_flashed_messages()%}  {{message}}   {%endfor%}</h3>
+    <div class='container'>
+
+        <div class='register'>
+            <form action="/register" method='post' class='forms'>
+                <h2>Register</h2>
+                <label for="fname">First Name</label>
+                <input type="text" name="fname" id="fname">
+                <label for="lname">Last Name</label>
+                <input type="text" name="lname" id="lname">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <label for="v_password">Verify Password</label>
+                <input type="password" name="v_password" id="v_password">
+                <input type="submit" value='Submit' class='submit'>
+            </form>
         </div>
+        <div class='login'>
+            <form action="/login" method='post' class='forms'>
+                <h2>Login</h2>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <input type="submit" value='Submit' class='submit'>
+            </form>
+        </div>
+
     </div>
 </body>
 

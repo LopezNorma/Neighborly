@@ -1,11 +1,68 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
-    <h1>Hello word</h1>
+    <div class= 'header1' id="community_page_logout">
+        <p class="community_welcome">Welcome to the Community Page!</p>
+        <a href="/logout" class="logout_button">Logout</a>
+    </div>
+    <div class='actions'>
+        <h3></h3>
+    </div>
+
+    <div class="dashboard_container">
+
+        <div class="table_header">
+    
+            <h3 >Here are some Community Members you can help!</h3>
+            <table class="all_jobs">
+                <thead>
+                    <th class="table_info">Member</th>
+                    <th class="table_info">Location</th>
+                    <th class="table_info">Help me please:</th>
+                    <th class="table_info">Estimated Time:</th>
+                </thead>
+                <tr>
+                    <td class="table_info">John</td>
+                    <td class="table_info">234 Sweet St.</td>
+                    <td class="table_info">Watch my cat</td>
+                    <td class="table_info">1 hour</td>
+                </tr>
+                <tr>
+                    <td class="table_info">To be </td>
+                    <td class="table_info">made from</td>
+                    <td class="table_info">the database</td>
+                    <td class="table_info">with a loop</td>
+                </tr>
+                
+            </table>
+        </div>
+        <div class="table_header">
+    
+            <h3 >Here your HelpMe! requests: </h3>
+            <table class="all_jobs">
+                <thead>
+                    <th class="table_info">HelpMe</th>
+                    <th class="table_info">Estimated Time</th>
+                </thead>
+                <tr>
+                    <td class="table_info">Watch my cat</td>
+                    <td class="table_info">1 hour</td>
+                </tr>
+                <tr>
+                    <td class="table_info">Generated</td>
+                    <td class="table_info">with a loop</td>
+                </tr>
+                
+            </table>
+            <h3 ><a class="linkText" href="">List a HelpMe! </h3>
+        </div>
+    </div>
 </body>
 </html>

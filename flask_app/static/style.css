@@ -1,0 +1,199 @@
+
+
+body {
+    background: url("/static/images/community.png") no-repeat center fixed;
+    background-size: cover;
+
+}
+
+.create_edit_check{
+    background: url("/static/images/helping_roof.png") no-repeat center fixed;
+    background-size: cover;
+    margin-top: 35%;
+}
+
+.header1 {
+    background-color: blueviolet;
+    opacity: .9;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 50px;
+    color: rgb(74, 210, 210);
+    width: 100%;
+}
+.register, .login {
+
+    width: 42%;
+}
+
+.container {
+    width: 100%;
+    justify-content: space-around;
+}
+
+.container, .forms {
+    display: flex;
+}
+
+.forms {
+    padding: 10px;
+    border: 7px solid black;
+    border-radius: 12px;
+    flex-direction: column;
+    font-family:'Times New Roman', Times, serif;
+    font-size: x-large;
+    margin: 5px;
+    background-color: rgb(149, 86, 207);
+    opacity: 0.9
+    ;
+}
+
+input, textarea {
+    font-size: x-large;
+    margin: 10px 5px;
+    font-family: Cambria;
+    border-radius: 7px;
+    background-color: rgb(188, 219, 219);
+}
+
+.submit {
+    background-color: rgb(149, 120, 175);
+}
+
+.actions{
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links {
+    margin: 0 15px;
+}
+
+
+.display, .section {
+    display: flex;
+    
+}
+.display{
+    margin-left: 10%;
+    flex-direction: column;
+    border: solid black 4px;
+    width: 70%;
+    border-radius: 15px;
+    background-color: cadetblue;
+    opacity: .80;
+}
+h3{
+    margin-left: 8%;
+}
+.labels {
+    width: 30%;
+}
+.header{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.helpme_display {
+    width: 100%;
+    margin-left: 10%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.last_table{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.final{
+    font-size: x-large;
+}
+.label_a{
+    width: 150px;
+    font-size: 20px;
+
+}
+.input_a{
+    width: 600px;
+    justify-self: right;
+}
+.forms_a{
+    width: 90%;
+    height: 90%;
+}
+#submit_a{
+    width: 80%;
+    margin-left: 20%;
+}
+
+.all_jobs{
+    min-width: 100%;
+    background: #ba7bc3e3;
+    opacity: 0.9;
+    border-collapse: collapse; font-family: helvetica ;
+}
+.table_info{
+    border:  1px solid;
+    padding: 10px;    
+    box-sizing: border-box;
+    text-align: left;
+
+}
+
+.table_header{
+    max-width: 45%;
+    background: rgba(186, 123, 195, 0.89);
+    opacity: 0.9;
+    border: solid rgb(151, 212, 224) 8px;
+
+}
+
+.dashboard_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.linkText{
+    color:rgb(104, 243, 243);
+    font-size: 35px;
+}
+
+#community_page_logout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.logout_button{
+    font-size: 20px;
+    align-self:flex-end;
+    margin: 25px;
+}
+.community_welcome{
+    justify-self:center;
+    margin-bottom: 25px;
+}
+.header2{
+    text-align: center;
+}
+
+#logout1{
+    align-self:right;
+    margin-right: -40%;
+}
+#logout2{
+    align-self: flex-start;
+    margin-left: 5%;
+}
+
+.editor{
+    margin-left: 18%;
+}
+.deletor{
+    margin-left: 15%;
+}
