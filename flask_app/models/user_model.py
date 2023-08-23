@@ -52,8 +52,8 @@ class User:
         query = "SELECT * FROM users WHERE email = %(email)s;"
         results = connectToMySQL(db).query_db(query,user)
         print(user ['email'], '+++++++++++++++++++++++++++++++')  
-        if len(results) >= 1:
-            flash('email already token!!')
+        if results == True:
+            flash('email already taken!!')
             is_valid = False
         if len(user['first_name']) < 2:
             flash('First name must be at least 2 characters long!!')
