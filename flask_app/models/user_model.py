@@ -31,7 +31,7 @@ class User:
     # this will help get user by email and if the result is empty it means didn't found a email
 
     @classmethod
-    def det_all(cls):
+    def get_all(cls):
         query = "SELECT * FROM users"
         results = connectToMySQL(db).query_db(query)
         users =[]

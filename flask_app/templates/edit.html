@@ -17,21 +17,21 @@
         </div>
         <h1 class="header2">Edit a HelpMe!</h1>
         <h3>{%for message in get_flashed_messages()%}  {{message, " "}} {%endfor%}</h3>
-        <form action="/create" method='post' class='forms_a'>
+        <form action="/helpme/update/{{one_helpme.id}}" method='post' class='forms_a'>
             <div class='helpme_display'>
                 <label for="title" class='label_a'>Title:</label>
-                <input type="text" name='title' id='title' class='input_a'  value="">
+                <input type="text" name='title' id='title' class='input_a'  value="{{one_helpme.title}}">
             </div>
             <div class='helpme_display'>
                 <label for="location" class='label_a'>Location</label>
-                <input type="text" name='location' id='location' class='input_a' value="">
+                <input type="text" name='location' id='location' class='input_a' value="{{one_helpme.location}}">
             </div>
             <div class='helpme_display'>
                 <label for="description" class='label_a'>Description:</label>
-                <input type="text" name='description' id='description' class='input_a' value="">
+                <input type="text" name='description' id='description' class='input_a' value="{{one_helpme.description}}">
             </div>
-            <input type="submit" class='input_a' id='submit_a' value='Create'>
-            <a href="/delete" class = 'links'>Logout</a>
+            <input type="submit" class='input_a' id='submit_a' value='Submit Changes'>
+            <a href="/helpmes/delete/{{one_helpme.id}}" class = 'links'>Delete</a>
         </form>
 
     </div>

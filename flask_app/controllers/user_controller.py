@@ -2,6 +2,7 @@ from flask_app import app
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.user_model import User
+from flask_app.models import helpme
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -48,10 +49,10 @@ def dashboard():
     data = {
         'id': session ['user_id']
     }
- 
-    return render_template('dashboard.html', user = User.get_by_id)
+    get_all_helpmes = helpme.Helpme.get_all_helpmes()
+    return render_template('dashboard.html', user = User.get_by_id, get_all_helpmes = get_all_helpmes)
 
 @app.route('/logout')
 def logout():
-    session.clear
+    session.clear()
     return redirect('/')

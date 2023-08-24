@@ -23,23 +23,20 @@
             <h3 >Here are some Community Members you can help!</h3>
             <table class="all_jobs">
                 <thead>
-                    <th class="table_info">Member</th>
+                    <th class="table_info">Title</th>
                     <th class="table_info">Location</th>
                     <th class="table_info">Help me please:</th>
-                    <th class="table_info">Estimated Time:</th>
                 </thead>
+
+                loop starts here:  get the data, display the data
+
+                {% for helpme in get_all_helpmes %} 
                 <tr>
-                    <td class="table_info">John</td>
-                    <td class="table_info">234 Sweet St.</td>
-                    <td class="table_info">Watch my cat</td>
-                    <td class="table_info">1 hour</td>
+                    <td class="table_info">{{helpme.title}}</td>
+                    <td class="table_info">{{helpme.description}}</td>
+                    <td class="table_info">{{helpme.location}}</td>
                 </tr>
-                <tr>
-                    <td class="table_info">To be </td>
-                    <td class="table_info">made from</td>
-                    <td class="table_info">the database</td>
-                    <td class="table_info">with a loop</td>
-                </tr>
+                {% endfor %}
                 
             </table>
         </div>
@@ -48,20 +45,21 @@
             <h3 >Here your HelpMe! requests: </h3>
             <table class="all_jobs">
                 <thead>
-                    <th class="table_info">HelpMe</th>
-                    <th class="table_info">Estimated Time</th>
+                    
+                    <th class="table_info">Title</th>
+                    <th class="table_info">Location</th>
                 </thead>
-                <tr>
-                    <td class="table_info">Watch my cat</td>
-                    <td class="table_info">1 hour</td>
-                </tr>
-                <tr>
-                    <td class="table_info">Generated</td>
-                    <td class="table_info">with a loop</td>
-                </tr>
-                
+
+                {% for help in get_all_helpmes %}
+                {%if help.user_id ==session["user_id"]~""%}
+                    <tr>
+                        <td class="table_info"><a href="/helpmes/show/{{help.id}}">{{help.title}}</a></td>
+                        <td class="table_info">{{help.location}}</td>
+                    </tr>
+                    {%endif%}
+                {% endfor %}                
             </table>
-            <h3 ><a class="linkText" href="">List a HelpMe! </h3>
+            <h3 ><a class="linkText" href="/new/helpme">List a HelpMe! </h3>
         </div>
     </div>
 </body>

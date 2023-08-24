@@ -13,17 +13,17 @@ class Helpme:
         self.user_id = data['user_id']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        self.owner = None
 
     #CREATE NEW HELPME
     @classmethod
     def save_helpme(cls, data):
         query="""
             INSERT INTO helpmes (title, description, location, user_id)
-            VALUES(%(title)s, %(description)s, %(location)s, %(user_id)s,);
+            VALUES(%(title)s, %(description)s, %(location)s, %(user_id)s);
         """
-
-        return connectToMySQL(cls.db).query_db(query, data)
+        results = connectToMySQL(cls.db).query_db(query, data)
+        print(results)
+        return results
     
     #READ all HELPME
     @classmethod
@@ -83,18 +83,21 @@ class Helpme:
     def update_helpme(cls, data):
         query="""
             UPDATE helpmes 
-            VALUES(%(title)s, %(description)s, %(location)s, %(user_id)s,);
+            SET title=%(title)s, description=%(description)s, location=%(location)s, user_id=%(user_id)s
             WHERE id=%(id)s;
         """
         return connectToMySQL(cls.db).query_db(query,data)
     
     #DELETE A HELPME ENTRY
     @classmethod
-    def delete_helpme(cls,data):
+    def delete_helpme(cls,id):
+        print (id)
         query="""
             DELETE FROM helpmes
             WHERE id=%(id)s;
         """
+        data= {'id':id}
+        return connectToMySQL(cls.db).query_db(query,data)
 
     #VALIDATIONS FOR ENTERING A NEW HELPME
     @staticmethod
