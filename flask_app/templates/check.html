@@ -18,20 +18,21 @@
         <h1 class="header2">Here is your HelpMe request:</h1>
         <h3>{%for message in get_flashed_messages()%}  {{message, " "}} {%endfor%}</h3>
         <div class='forms_a'>
+            
             <div class='helpme_display'>
                 <p class='label_a'>Title:</p>
-                <p>python variable here!!!</p>
+                <p>{{one_helpme.title}}</p>
             </div>
             <div class='helpme_display'>
                 <p class='label_a'>Location:</p>
-                <p>python variable here!!!</p>
+                <p>{{one_helpme.location}}</p>
             </div>
             <div class='helpme_display'>
                 <p class='label_a'>Description:</p>
-                <p>python variable here!!!</p>
+                <p>{{one_helpme.description}}</p>
             </div>
-            <a href="/edit" class="editor">Edit</a>
-            <a href="/delete" class = "deletor">Delete</a>
+            <a href="/helpmes/edit/{{one_helpme.id}}" class="editor">Edit</a>
+            <a href="/helpmes/delete/{{one_helpme.id}}" class = "deletor">Delete</a>
         </div>
 
     </div>

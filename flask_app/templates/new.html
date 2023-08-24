@@ -17,7 +17,7 @@
         </div>
         <h1 class="header2">Create a New HelpMe!</h1>
         <h3>{%for message in get_flashed_messages()%}  {{message, " "}} {%endfor%}</h3>
-        <form action="/create" method='post' class='forms_a'>
+        <form action="/helpme/create" method='post' class='forms_a'>
             <div class='helpme_display'>
                 <label for="title" class='label_a'>Title:</label>
                 <input type="text" name='title' id='title' class='input_a'>
@@ -30,6 +30,7 @@
                 <label for="description" class='label_a'>Description:</label>
                 <input type="text" name='description' id='description' class='input_a'>
             </div>
+            <input type="hidden" name = "user_id" id= "user_id" value = "{{id}}"/>
             <input type="submit" class='input_a' id='submit_a' value='Create'>
         </form>
 
